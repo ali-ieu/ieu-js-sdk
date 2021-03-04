@@ -1,0 +1,30 @@
+{
+    "name": "@ali-ieu/social-share",
+    "version": "0.0.17-beta.1",
+    "description": "@ali-ieu/social-share",
+    "main": "index.js",
+    "module": "dist/social-share.esm-bundler.js",
+    "files": [
+        "index.js",
+        "dist"
+    ],
+    "types": "dist/social-share.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+git@github.com:ali-ieu/ieu-js-sdk.git",
+        "directory": "packages/social-share"
+    },
+    "keywords": [
+        "ali-ieu"
+    ],
+    "author": "EliazTray",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ali-ieu/ieu-js-sdk/issues"
+    },
+    "homepage": "https://github.com/ali-ieu/ieu-js-sdk/#quickstart",
+    "sideEffects": [],
+    "dependencies": {
+        "@ali-ieu/shared": "0.0.17-beta.1"
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "rootDir": ".",
+        "outDir": "dist",
+        // Transpilation settings.
+        "module": "ESNext",
+        "target": "ES5",
+
+        "charset": "utf-8",
+        "newLine": "LF",
+        // React.js JSX settings.
+        "jsx": "react",
+        "jsxFactory": "React.createElement",
+        "jsxFragmentFactory": "React.Fragment",
+
+        // Module settings.
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+
+        // Strictness and quality settings.
+        "alwaysStrict": true,
+        "forceConsistentCasingInFileNames": true,
+        "importsNotUsedAsValues": "error",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strict": true,
+
+        // Type-checking settings.
+        "lib": ["ESNext", "DOM"],
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+        "types": ["jest", "node"],
+        "paths": {
+            "@ali-ieu/*": ["packages/*/src"]
+        }
+    },
+    "include": ["packages/global.d.ts", "packages/**/global.d.ts", "packages/*/src", "packages/*/__tests__"]
+}

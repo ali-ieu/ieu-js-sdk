@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Social Share FaceBookShare: web 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fexample.com",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Social Share QQMessengerShare: web 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "https://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fexample.com&title=title&desc=message&pics=https%3A%2F%2Fabc.png",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Social Share QZoneShare: web 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https%3A%2F%2Fexample.com&title=title&desc=message&pics=https%3A%2F%2Fabc.png",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Social Share SinaShare: web 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "https://service.weibo.com/share/share.php?url=https%3A%2F%2Fexample.com&title=title&pic=https%3A%2F%2Fabc.png",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Social Share Twitter: web 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "https://twitter.com/intent/tweet?text=message&url=https://example.com",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;

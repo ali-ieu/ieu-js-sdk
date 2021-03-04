@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Airline full example</title>
+    </head>
+    <body>
+        <p id="token"></p>
+        <button id="airline">airline login</button>
+        <script type="module" src="../dist/">
+            const thirdParty = new IeuSDK.ThirdParty({ host: 'pre-util-server.qookkagames.com' })
+
+            function openairline() {
+                thirdParty.airlineLogin({
+                    client_id: '10000176',
+                    airline_type: 'qookka',
+                })
+            }
+
+            thirdParty
+                .getAccessToken(IeuSDK.THIRD_PARTY_CHANNEL.AIRLINE)
+                .then((result) => {
+                    document.querySelector('#token').innerHTML = result.accessToken
+                })
+                .catch(console.error)
+            setTimeout(() => {
+                // thirdParty.logout().then(console.log);
+                thirdParty.getAccessToken(IeuSDK.THIRD_PARTY_CHANNEL.AIRLINE).then(console.info).catch(console.error)
+            }, 1000)
+
+            document.querySelector('#airline').addEventListener('click', openairline)
+        </script>
+    </body>
+</html>

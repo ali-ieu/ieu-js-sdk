@@ -1,0 +1,27 @@
+{
+    "name": "@ali-ieu/ieu-js-sdk",
+    "version": "0.0.17-beta.1",
+    "description": "@ali-ieu/ieu-js-sdk",
+    "main": "index.js",
+    "module": "dist/ieu-js-sdk.esm-bundler.js",
+    "files": [
+        "index.js",
+        "dist"
+    ],
+    "types": "dist/ieu-js-sdk.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "git+git@github.com:ali-ieu/ieu-js-sdk.git",
+        "directory": "packages/ieu-js-sdk"
+    },
+    "keywords": [
+        "ali-ieu"
+    ],
+    "author": "EliazTray",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ali-ieu/ieu-js-sdk/issues"
+    },
+    "homepage": "https://github.com/ali-ieu/ieu-js-sdk/#quickstart",
+    "sideEffects": []
+}

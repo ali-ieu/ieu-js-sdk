@@ -1,0 +1,12 @@
+.DS_Store
+# Node.js modules.
+node_modules/
+# Log's files.
+*.log
+*.log.*
+.history
+index.html
+/*.puml
+**/example/*.json
+dist
+temp

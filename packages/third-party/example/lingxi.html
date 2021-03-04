@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Lingxi full example</title>
+        <script src="../dist/index.umd.js"></script>
+    </head>
+    <body>
+        <p id="token"></p>
+        <button id="lingxi">lingxi login</button>
+        <script>
+            const thirdParty = new IeuSDK.ThirdParty({ host: 'pre-util-server.lingxigames.com' });
+
+            function openLingxi() {
+                thirdParty.lingxiLogin({
+                    client_id: '10000147',
+                    os: 'ios',
+                });
+            }
+            thirdParty
+                .getAccessToken(IeuSDK.THIRD_PARTY_CHANNEL.LINGXI)
+                .then((result) => {
+                    document.querySelector('#token').innerHTML = result.accessToken;
+                })
+                .catch(console.error);
+            setTimeout(() => {
+                // thirdParty.logout().then(console.log);
+                thirdParty.getAccessToken(IeuSDK.THIRD_PARTY_CHANNEL.LINGXI).then(console.info).catch(console.error);
+            }, 1000);
+            document.querySelector('#lingxi').addEventListener('click', openLingxi);
+        </script>
+    </body>
+</html>

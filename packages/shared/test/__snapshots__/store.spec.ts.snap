@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`store it throws error without setting nameSpace or setting falsy value 1`] = `"[nameSpace] 尚未初始化"`;
