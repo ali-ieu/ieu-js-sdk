@@ -1,3 +1,4 @@
+import { isNative } from '@ali-ieu/shared'
 import { EjoySDK, NativeShareParams } from '../src'
 
 const shareParams: NativeShareParams = {
@@ -24,7 +25,7 @@ describe('ejoysdk', () => {
 
     it('it is in mock valid webview', () => {
         expect(window.navigator.userAgent).toBe('android;HYSDK')
-        expect(EjoySDK.isInWebview()).toBe(true)
+        expect(isNative()).toBe(true)
     })
 
     it('test event success', () => {
@@ -46,7 +47,7 @@ describe('ejoysdk', () => {
     it('test event error', () => {
         const error = 'error'
 
-        expect(EjoySDK.isInWebview()).toBe(true)
+        expect(isNative()).toBe(true)
         EjoySDK.share('qq_share_messenger', shareParams, (err, result) => {
             if (err) {
                 expect(err).toEqual(new Error(error))

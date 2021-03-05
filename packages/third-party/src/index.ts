@@ -172,7 +172,7 @@ class ThirdParty {
                         xhr.onerror = () => {
                             reject({
                                 code: ERROR_CODE.NETWORK_ERROR,
-                                msg: 'NetWork Error',
+                                msg: '网络异常',
                             })
                         }
                     } else {
@@ -182,7 +182,7 @@ class ThirdParty {
                         }
                         reject({
                             code: ERROR_CODE.FISSION_TOKEN_UNAVAILABLE,
-                            msg: 'No Available FissionToken',
+                            msg: '无可用的 FissionToken',
                         })
                     }
                 })
@@ -243,7 +243,7 @@ class ThirdParty {
                 xhr.onerror = () => {
                     reject({
                         code: ERROR_CODE.NETWORK_ERROR,
-                        msg: 'NetWork Error',
+                        msg: '网络异常',
                     })
                 }
             } else {
@@ -253,7 +253,7 @@ class ThirdParty {
                 }
                 reject({
                     code: ERROR_CODE.ACESS_TOKEN_UNAVAILABLE,
-                    msg: 'No Available AcessToken',
+                    msg: '无可用的 AcessToken',
                 })
             }
         })

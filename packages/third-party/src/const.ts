@@ -25,8 +25,6 @@ export const ERROR_CODE = {
 
 export const THIRD_PART_LOGIN_TOKEN_URL = 'api/v2/thirdpartylogin/getAccessTokenByCode'
 
-export const WINDOW_FEATURES = 'menubar=no,width=500,height=600'
-
 export const VERSION = pkg.version
 export const PKG_NAME = pkg.name
 export const TOKENNAME = 'access_token'

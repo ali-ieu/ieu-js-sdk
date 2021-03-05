@@ -4,7 +4,6 @@ import typescript2 from 'rollup-plugin-typescript2'
 import nodePolyfills from 'rollup-plugin-node-polyfills'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import json from '@rollup/plugin-json'
-import image from '@rollup/plugin-image'
 import replace from '@rollup/plugin-replace'
 import path from 'path'
 import chalk from 'chalk'
@@ -113,20 +112,19 @@ function createConfig(format, output, plugins = []) {
 
     // esm bundler & cjs format need external dependencies and peerDependencies
     const external =
-        isGlobalBuild || isBrowserESMBuild ? [] : [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})]
+        isGlobalBuild || isBrowserESMBuild
+            ? []
+            : [
+                  ...Object.keys(pkg.dependencies || {}),
+                  ...Object.keys(pkg.peerDependencies || {}),
+                  /** node built-ins for esm-bundle */ 'events',
+                  'querystring',
+              ]
 
     return {
         input: resolve(entryFile),
         external,
-        plugins: [
-            nodeResolve(),
-            json(),
-            image(),
-            nodePolyfills(),
-            createReplacePlugin(isProduction, isBundlerESMBuild),
-            tsPlugin,
-            ...plugins,
-        ],
+        plugins: [nodePolyfills(), nodeResolve(), json(), createReplacePlugin(isProduction, isBundlerESMBuild), tsPlugin, ...plugins],
         output,
         onwarn: (msg, warn) => {
             if (!/Circular/.test(msg)) {
@@ -141,6 +139,7 @@ function createConfig(format, output, plugins = []) {
 
 function createReplacePlugin(isProduction, isBundlerESMBuild) {
     return replace({
+        preventAssignment: true,
         __DEV__: isBundlerESMBuild
             ? // esm bundler 交给 使用方 的打包工具 去处理
               '(process.env.NODE_ENV === "development")'

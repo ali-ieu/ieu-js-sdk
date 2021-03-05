@@ -1,3 +1,4 @@
+import { isNative } from '@ali-ieu/shared'
 import { EventEmitter } from 'events'
 
 type NativeResult = {
@@ -80,10 +81,6 @@ class SDK {
         this.eventsId = '1000'
     }
 
-    isInWebview(): boolean {
-        return /HYSDK/gi.test(navigator.userAgent) || /** 兼容客户端某些异常场景 */ Boolean(window['webkit'])
-    }
-
     private genID(): string {
         this.eventsId = String(Number(this.eventsId) + 1)
         return this.eventsId
@@ -116,9 +113,9 @@ class SDK {
                 callback(null, result.retval)
             }
         })
-        // 不在自研的 webview
-        if (!this.isInWebview()) {
-            this.nativeCallback(eventsId, { error: 'This is not in HYSDK webview!' })
+        // 不在支持的客户端环境
+        if (!isNative()) {
+            this.nativeCallback(eventsId, { error: '不被支持的 webview 环境' })
             return
         }
 
@@ -172,7 +169,7 @@ class SDK {
                 break
             default:
                 // 不被支持的方式
-                this.nativeCallback(eventsId, { error: 'Your device is not supported!' })
+                this.nativeCallback(eventsId, { error: '当前设备不支持' })
                 break
         }
     }

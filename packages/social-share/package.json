@@ -1,6 +1,6 @@
 {
     "name": "@ali-ieu/social-share",
-    "version": "0.0.17-beta.1",
+    "version": "1.0.0",
     "description": "@ali-ieu/social-share",
     "main": "index.js",
     "module": "dist/social-share.esm-bundler.js",
@@ -25,6 +25,16 @@
     "homepage": "https://github.com/ali-ieu/ieu-js-sdk/#quickstart",
     "sideEffects": [],
     "dependencies": {
-        "@ali-ieu/shared": "0.0.17-beta.1"
+        "@ali-ieu/shared": "1.0.0",
+        "@ali-ieu/ejoysdk": "1.0.0"
+    },
+    "buildOptions": {
+        "formats": [
+            "esm-bundler",
+            "cjs",
+            "global",
+            "esm-browser"
+        ],
+        "name": "IeuSocialShare"
     }
 }

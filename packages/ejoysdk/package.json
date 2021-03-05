@@ -1,6 +1,6 @@
 {
     "name": "@ali-ieu/ejoysdk",
-    "version": "0.0.17-beta.1",
+    "version": "1.0.0",
     "description": "@ali-ieu/ejoysdk",
     "main": "index.js",
     "module": "dist/ejoysdk.esm-bundler.js",
@@ -23,5 +23,17 @@
         "url": "https://github.com/ali-ieu/ieu-js-sdk/issues"
     },
     "homepage": "https://github.com/ali-ieu/ieu-js-sdk/#quickstart",
-    "sideEffects": []
+    "sideEffects": [],
+    "dependencies": {
+        "@ali-ieu/shared": "1.0.0"
+    },
+    "buildOptions": {
+        "formats": [
+            "esm-bundler",
+            "cjs",
+            "global",
+            "esm-browser"
+        ],
+        "name": "IeuEjoySDK"
+    }
 }

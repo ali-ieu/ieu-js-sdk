@@ -1,6 +1,6 @@
 {
     "name": "@ali-ieu/shared",
-    "version": "0.0.17-beta.1",
+    "version": "1.0.0",
     "description": "@ali-ieu/shared",
     "main": "index.js",
     "module": "dist/shared.esm-bundler.js",
