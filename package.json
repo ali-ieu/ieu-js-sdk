@@ -37,9 +37,12 @@
         "rollup-plugin-terser": "^7.0.2",
         "rollup-plugin-typescript2": "^0.27.3",
         "ts-jest": "^26.4.1",
-        "typescript": "^4.2.3"
+        "typescript": "^4.2.3",
+        "vuepress": "^1.8.2"
     },
     "scripts": {
+        "dev:docs": "vuepress dev docs",
+        "build:docs": "vuepress build docs",
         "test": "npm run lint && npm run test:unit",
         "test:lint": "eslint \"*/**/*.{ts,js,json}\"",
         "test:unit": "SKIP_E2E=true jest",

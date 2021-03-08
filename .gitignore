@@ -10,3 +10,4 @@ index.html
 **/example/*.json
 dist
 temp
+coverage
