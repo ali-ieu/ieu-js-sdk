@@ -1,8 +1,19 @@
 # IEU SDK
 
-IEU SDK, 目前包括三方登录，ejoysdk, 端内分享等功能。
+IEU SDK, 支持第三方登录服务接入，支持社交分享功能以及 ejoysdk。
 
 [[toc]]
+
+## 安装
+
+支持 tree-shaking, 建议直接安装整包
+
+```bash
+# npm
+npm install @ali-ieu/ieu-js-sdk
+# yarn
+yarn add @ali-ieu/ieu-js-sdk
+```
 
 ## 快速指南
 

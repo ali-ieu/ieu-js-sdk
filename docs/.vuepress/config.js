@@ -21,8 +21,9 @@ module.exports = {
             '/social-share/': [
                 {
                     title: '社交分享',
+                    sidebarDepth: 3,
                     collapsable: false,
-                    children: ['', 'facebook'],
+                    children: ['', 'facebook', 'twitter'],
                 },
             ],
         },
