@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/ieu-js-sdk/',
     title: 'IeuSDK',
     description: 'Ieu js sdk, 三方登录服务组件，社交分享组件，ejoysdk',
     evergreen: true,
@@ -23,7 +24,7 @@ module.exports = {
                     title: '社交分享',
                     sidebarDepth: 3,
                     collapsable: false,
-                    children: ['', 'facebook', 'twitter'],
+                    children: ['', 'facebook', 'twitter', 'weixin', 'qq'],
                 },
             ],
         },

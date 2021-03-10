@@ -1,0 +1,28 @@
+name: Deploy Docs
+on:
+    push:
+        paths:
+            # - 'docs/**'
+jobs:
+    deploy-docs:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            #       https://dev.to/mpocock1/how-to-cache-nodemodules-in-github-actions-with-yarn-24eh
+            - name: Get yarn cache directory path
+              id: yarn-cache-dir-path
+              run: echo "::set-output name=dir::$(yarn cache dir)"
+            - uses: actions/cache@v2
+              with:
+                  path: '**/node_modules'
+                  key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+            - name: Build Docs
+              run: yarn && yarn build:docs
+
+            - name: Deploy
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./docs/.vuepress/dist
