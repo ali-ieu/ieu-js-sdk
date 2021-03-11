@@ -43,7 +43,7 @@
     "scripts": {
         "dev:docs": "vuepress dev docs",
         "build:docs": "vuepress build docs",
-        "test": "npm run lint && npm run test:unit",
+        "test": "npm run test:lint && npm run test:unit",
         "test:lint": "eslint \"*/**/*.{ts,js,json}\"",
         "test:unit": "SKIP_E2E=true jest",
         "test:e2e": "jest",

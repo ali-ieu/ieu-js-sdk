@@ -2,7 +2,7 @@ name: Deploy Docs
 on:
     push:
         paths:
-            # - 'docs/**'
+            - 'docs/**'
 jobs:
     deploy-docs:
         runs-on: ubuntu-latest
