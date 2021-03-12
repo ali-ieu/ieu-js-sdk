@@ -8,6 +8,9 @@ const configuration = {
     globals: {
         __DEV__: true,
     },
+    moduleNameMapper: {
+        '^@ali-ieu/(.*?)$': '<rootDir>/packages/$1/src',
+    },
 }
 
 module.exports = configuration
