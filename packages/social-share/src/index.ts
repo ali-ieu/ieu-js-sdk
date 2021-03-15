@@ -48,7 +48,7 @@ class SocialShare {
     private messager?: EventEmitter
 
     constructor(config: SocialShareConfig) {
-        this.platform = config.platform ?? (isNative() ? 'native' : 'web')
+        this.platform = config.platform || (isNative() ? 'native' : 'web')
         if (config.wxConfig) {
             // 配置 wechat
             this.messager = new EventEmitter()
