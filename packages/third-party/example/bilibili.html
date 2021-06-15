@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BiliBili OAuth2 full example</title>
+    </head>
+    <body>
+        <p id="token"></p>
+        <button id="bilibili">bilibili login</button>
+        <script src="../dist/third-party.global.js"></script>
+        <script>
+            const thirdParty = new IeuThirdParty.ThirdParty({ host: '127.0.0.1:7001' })
+
+            function openbilibili() {
+                thirdParty.bilibiliLogin({
+                    client_id: '10000176',
+                    bilibili_type: 'qookka',
+                })
+            }
+
+            thirdParty
+                .getAccessToken('bilibili')
+                .then((result) => {
+                    document.querySelector('#token').innerHTML = result.accessToken
+                })
+                .catch(console.error)
+
+            document.querySelector('#bilibili').addEventListener('click', openbilibili)
+        </script>
+    </body>
+</html>
