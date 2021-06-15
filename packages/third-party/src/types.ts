@@ -44,7 +44,14 @@ export interface WeiboLoginParams {
     [k: string]: any
 }
 
-export type ThirdPartyChannel = 'airline' | 'lingxi' | 'weixin'
+export interface BiliBiliLoginParams {
+    client_id: string
+    /** 默认为 all */
+    scope?: string
+    [k: string]: any
+}
+
+export type ThirdPartyChannel = 'airline' | 'lingxi' | 'weixin' | 'bilibili'
 
 export interface CommonLoginSuccessResponse {
     /** 三方登录 token */

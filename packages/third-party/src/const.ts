@@ -7,6 +7,7 @@ export const THIRD_PART_LOGIN_URL = {
     qq: 'api/v2/thirdpartylogin/qq/login',
     weixin: 'api/v2/thirdpartylogin/weixin/login',
     weibo: 'api/v2/thirdpartylogin/weibo/login',
+    bilibili: 'api/v2/thirdpartylogin/bilibili/login',
 }
 // 登录异常错误码
 

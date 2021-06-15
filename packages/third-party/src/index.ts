@@ -13,6 +13,7 @@ import type {
     ThirdPartyChannel,
     WeixinLoginParams,
     WeiboLoginParams,
+    BiliBiliLoginParams,
 } from './types'
 
 function joinSlash(...paths: string[]) {
@@ -92,6 +93,12 @@ class ThirdParty {
     }
     weiboLogin(params: WeiboLoginParams): void {
         window.location.href = this.completeURL(THIRD_PART_LOGIN_URL['weibo'], {
+            ...params,
+            redirectURI: window.location.href,
+        })
+    }
+    bilibiliLogin(params: BiliBiliLoginParams): void {
+        window.location.href = this.completeURL(THIRD_PART_LOGIN_URL['bilibili'], {
             ...params,
             redirectURI: window.location.href,
         })
