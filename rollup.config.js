@@ -124,7 +124,7 @@ function createConfig(format, output, plugins = []) {
     return {
         input: resolve(entryFile),
         external,
-        plugins: [nodePolyfills(), nodeResolve(), json(), createReplacePlugin(isProduction, isBundlerESMBuild), tsPlugin, ...plugins],
+        plugins: [nodePolyfills(), json(), createReplacePlugin(isProduction, isBundlerESMBuild), tsPlugin, nodeResolve(), ...plugins],
         output,
         onwarn: (msg, warn) => {
             if (!/Circular/.test(msg)) {
