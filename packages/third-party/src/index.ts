@@ -151,7 +151,6 @@ class ThirdParty {
                         xhr.open('POST', this.env.getFissionURL())
                         xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8')
                         xhr.send(JSON.stringify(params))
-                        xhr.responseType = 'json'
                         xhr.onload = () => {
                             try {
                                 const result: FissionTokenResponse = JSON.parse(xhr.responseText)
