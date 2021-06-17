@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/ali-ieu/ieu-js-sdk/compare/v1.1.0...v1.1.1) (2021-06-17)
+
+
+### Bug Fixes
+
+* 修复 responseType="json" 导致的解析异常 ([696d048](https://github.com/ali-ieu/ieu-js-sdk/commit/696d048124bc9ef27b1596ea6415121e93f8aa1a))
+
+
+
 # [1.1.0](https://github.com/ali-ieu/ieu-js-sdk/compare/v1.0.2...v1.1.0) (2021-06-17)
 
 
