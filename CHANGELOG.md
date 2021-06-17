@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/ali-ieu/ieu-js-sdk/compare/v1.0.2...v1.1.0) (2021-06-17)
+
+
+### Features
+
+* add bilibili OAuth ([67b1530](https://github.com/ali-ieu/ieu-js-sdk/commit/67b15304825f10c41ab678eb2ec526e3a26e4622))
+
+
+
 ## [1.0.2](https://github.com/ali-ieu/ieu-js-sdk/compare/v1.0.1...v1.0.2) (2021-06-15)
 
 
