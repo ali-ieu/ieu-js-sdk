@@ -1,6 +1,6 @@
-# 国内灵犀用户中心
+# 哔哩哔哩三方登录
 
-目前接入国内灵犀用户中心有两种业务场景
+BiliBili 接入也有两种场景
 
 [[toc]]
 
@@ -9,9 +9,9 @@
 | 配置项     | 日常                                                              | 预发                                                       | 线上                                                   |
 | ---------- | ----------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------ |
 | fissionURL | https://daily-common-api.alibaba.net/api/tplogin/login/thirdparty | https://sapi-pre.aligames.com/api/tplogin/login/thirdparty | https://sapi.aligames.com/api/tplogin/login/thirdparty |
-| host       | daily-util-server.alibaba.net                                     | pre-util-server.lingxigames.com                            | util-server.lingxigames.com                            |
+| host       | daily-util-server.alibaba.net                                     | pre-util-server.bilibiligames.com                          | util-server.bilibiligames.com                          |
 
-### 场景 1: 获取灵犀用户中心的 accessToken
+### 场景 1: 获取 bilibili 的 accessToken
 
 #### Step1. 初始化配置
 
@@ -25,7 +25,7 @@
 // lib.ts
 import { ThirdParty } from '@ali-ieu/ieu-js-sdk'
 const thirdParty = new ThirdParty({
-    host: 'pre-util-server.lingxigames.com',
+    host: 'daily-util-server.alibaba.net',
 })
 
 export { thirdParty }
@@ -41,12 +41,11 @@ import { thirdParty } from 'path/to/lib.ts'
 
 function Login() {
     /** 先判断是否登录 */
-    const isLogined = thirdParty.isLogined('lingxi')
+    const isLogined = thirdParty.isLogined('bilibili')
     const handleLogin = () => {
-        // 拉起 lingxi 三方登录
-        thirdParty.lingxiLogin({
+        // 拉起 bi li bi li 三方登录
+        thirdParty.bilibiliLogin({
             client_id: '替换成应用的client_id',
-            os: 'ios', // 'ios' | 'android'
         })
     }
     return <div>{!isLogined ? <button onClick={handleLogin}>登录</button> : '已登录'}</div>
@@ -66,16 +65,16 @@ function Login() {
 import { thirdParty } from 'path/to/lib'
 
 try {
-    const { accessToken } = await thirdParty.getAccessToken('lingxi')
+    const { accessToken } = await thirdParty.getAccessToken('bilibili')
 } catch (e) {
     console.error(e)
     // 一般无需处理，有特殊业务需求可根据 e.code 自行处理
 }
 ```
 
-### 场景 2: 获取灵犀用户中心的 fissionToken
+### 场景 2: 获取 bilibili 的 fissionToken
 
-和[接入 accessToken](#场景-1-获取灵犀用户中心的-accesstoken)类似，是另一种意义上的 accessToken。
+和[接入 accessToken](#场景-1-获取-bilibili-的-accesstoken)类似，是另一种意义上的 accessToken。
 
 #### Step1. 初始化配置
 
@@ -90,7 +89,7 @@ try {
 // lib.ts
 import { ThirdParty } from '@ali-ieu/ieu-js-sdk'
 const thirdParty = new ThirdParty({
-    host: 'pre-util-server.lingxigames.com',
+    host: 'daily-util-server.alibaba.net',
     fissionURL: 'https://daily-common-api.alibaba.net/api/tplogin/login/thirdparty',
 })
 
@@ -104,12 +103,11 @@ export { thirdParty }
 import { thirdParty } from 'path/to/lib.ts'
 
 function Login() {
-    const isLogined = thirdParty.isLogined('lingxi', true)
+    const isLogined = thirdParty.isLogined('bilibili', true)
     const handleLogin = () => {
-        // 拉起 lingxi 三方登录
-        thirdParty.lingxiLogin({
+        // 拉起 bilibili 三方登录
+        thirdParty.bilibiliLogin({
             client_id: '替换成应用的client_id',
-            os: 'your os platform', // 'ios' | 'android'
         })
     }
     return <div>{!isLogined ? <button onClick={handleLogin}>登录</button> : '已登录'}</div>
@@ -129,7 +127,7 @@ function Login() {
 import { thirdParty } from 'path/to/lib'
 
 try {
-    const { token } = await thirdParty.getFissionToken('lingxi')
+    const { token } = await thirdParty.getFissionToken('bilibili')
 } catch (e) {
     // 一般无需处理，有特殊业务需求可根据 e.code 自行处理
 }

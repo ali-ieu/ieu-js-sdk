@@ -12,7 +12,7 @@
 
 | 配置项     | 日常                                                                                                                                    | 预发                                                                                                                                    | 线上                                                                                                                        |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| fissionURL | http://sapi19.game.alibaba.net/api/tplogin/login/thirdparty                                                                             | http://sapi-pre.aligames.com/api/tplogin/login/thirdparty                                                                               | https://sapi.aligames.com/api/tplogin/login/thirdparty                                                                      |
+| fissionURL | https://daily-common-api.alibaba.net/api/tplogin/login/thirdparty                                                                       | https://sapi-pre.aligames.com/api/tplogin/login/thirdparty                                                                              | https://sapi.aligames.com/api/tplogin/login/thirdparty                                                                      |
 | host       | qookka: pre-util-server.qookkagames.com<br> sialia: pre-util-server.sialiagames.com.tw<br>oriental: pre-util-server.orientalgame.com.tw | qookka: pre-util-server.qookkagames.com<br> sialia: pre-util-server.sialiagames.com.tw<br>oriental: pre-util-server.orientalgame.com.tw | qookka: util-server.qookkagames.com<br> sialia: util-server.sialiagames.com.tw<br>oriental: util-server.orientalgame.com.tw |
 
 ### 场景 1: 获取 airline accessToken
@@ -93,7 +93,7 @@ try {
 import { ThirdParty } from '@ali-ieu/ieu-js-sdk'
 const thirdParty = new ThirdParty({
     host: 'pre-util-server.qookkagames.com',
-    fissionURL: 'http://sapi19.game.alibaba.net/api/tplogin/login/thirdparty',
+    fissionURL: 'https://daily-common-api.alibaba.net/api/tplogin/login/thirdparty',
 })
 
 export { thirdParty }

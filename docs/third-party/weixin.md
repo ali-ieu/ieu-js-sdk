@@ -5,10 +5,10 @@
 
 ## 配置
 
-| 配置项     | 日常                                                        | 预发                                                      | 线上                                                   |
-| ---------- | ----------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------ |
-| fissionURL | http://sapi19.game.alibaba.net/api/tplogin/login/thirdparty | http://sapi-pre.aligames.com/api/tplogin/login/thirdparty | https://sapi.aligames.com/api/tplogin/login/thirdparty |
-| host       | pre-util-server.lingxigames.com                             | pre-util-server.lingxigames.com                           | util-server.lingxigames.com                            |
+| 配置项     | 日常                                                              | 预发                                                       | 线上                                                   |
+| ---------- | ----------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------ |
+| fissionURL | https://daily-common-api.alibaba.net/api/tplogin/login/thirdparty | https://sapi-pre.aligames.com/api/tplogin/login/thirdparty | https://sapi.aligames.com/api/tplogin/login/thirdparty |
+| host       | daily-util-server.alibaba.net                                     | pre-util-server.lingxigames.com                            | util-server.lingxigames.com                            |
 
 ### 场景 1: 获取微信第三方登录的 accessToken
 
@@ -89,7 +89,7 @@ try {
 import { ThirdParty } from '@ali-ieu/ieu-js-sdk'
 const thirdParty = new ThirdParty({
     host: 'pre-util-server.lingxigames.com',
-    fissionURL: 'http://sapi19.game.alibaba.net/api/tplogin/login/thirdparty',
+    fissionURL: 'https://daily-common-api.alibaba.net/api/tplogin/login/thirdparty',
 })
 
 export { thirdParty }
