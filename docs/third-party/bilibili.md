@@ -9,7 +9,7 @@ BiliBili 接入也有两种场景
 | 配置项     | 日常                                                              | 预发                                                       | 线上                                                   |
 | ---------- | ----------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------ |
 | fissionURL | https://daily-common-api.alibaba.net/api/tplogin/login/thirdparty | https://sapi-pre.aligames.com/api/tplogin/login/thirdparty | https://sapi.aligames.com/api/tplogin/login/thirdparty |
-| host       | daily-util-server.alibaba.net                                     | pre-util-server.bilibiligames.com                          | util-server.bilibiligames.com                          |
+| host       | daily-util-server.alibaba.net                                     | pre-util-server.lingxigames.com                            | util-server.lingxigames.com                            |
 
 ### 场景 1: 获取 bilibili 的 accessToken
 
