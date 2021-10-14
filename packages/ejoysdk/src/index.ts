@@ -236,6 +236,20 @@ class SDK {
             callback,
         )
     }
+
+    /** 是否端内外 */
+    isAliHYApp(): boolean {
+        let isAliHYApp = false
+        const myUA = navigator.userAgent
+        if (myUA && myUA.indexOf('HYSDK') > 0) {
+            isAliHYApp = true
+        }
+        if (window['webkit'] && window['webkit']['messageHandlers'] && window['webkit']['messageHandlers']['jsinterface']) {
+            // 此为ios特有，如果存在此对象，可以主动判断为端内
+            isAliHYApp = true
+        }
+        return isAliHYApp
+    }
 }
 
 // 单实例
