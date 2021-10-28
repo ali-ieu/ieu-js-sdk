@@ -1,0 +1,37 @@
+{
+    "name": "@ali-ieu/big-eye",
+    "version": "1.0.0",
+    "description": "@ali-ieu/big-eye",
+    "main": "index.js",
+    "module": "dist/big-eye.esm-bundler.js",
+    "dependencies": {
+        "alife-logger": "^1.8.30"
+    },
+    "files": [
+        "index.js",
+        "dist"
+    ],
+    "types": "dist/ieu-js-sdk.d.ts",
+    "sideEffects": [],
+    "author": "AgneseLee",
+    "homepage": "https://github.com/ali-ieu/ieu-js-sdk/#quickstart",
+    "bugs": {
+        "url": "https://github.com/ali-ieu/ieu-js-sdk/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+git@github.com:ali-ieu/ieu-js-sdk.git",
+        "directory": "packages/big-eye"
+    },
+    "keywords": [
+        "ali-ieu"
+    ],
+    "license": "MIT",
+    "buildOptions": {
+        "formats": [
+            "esm-bundler",
+            "esm-browser"
+        ],
+        "name": "IeuBigEye"
+    }
+}

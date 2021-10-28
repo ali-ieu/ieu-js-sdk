@@ -28,7 +28,8 @@
         "@ali-ieu/ejoysdk": "1.2.2",
         "@ali-ieu/shared": "1.2.2",
         "@ali-ieu/social-share": "1.2.2",
-        "@ali-ieu/third-party": "1.2.2"
+        "@ali-ieu/third-party": "1.2.2",
+        "@ali-ieu/big-eye": "1.0.0"
     },
     "buildOptions": {
         "formats": [

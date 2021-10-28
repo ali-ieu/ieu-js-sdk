@@ -1,4 +1,5 @@
 export { EjoySDK } from '@ali-ieu/ejoysdk'
 export { ThirdParty } from '@ali-ieu/third-party'
 export { SocialShare } from '@ali-ieu/social-share'
+export { BigEye, BrowserLogger } from '@ali-ieu/big-eye'
 export * from '@ali-ieu/shared'
