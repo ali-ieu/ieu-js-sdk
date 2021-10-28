@@ -30,6 +30,8 @@
     "buildOptions": {
         "formats": [
             "esm-bundler",
+            "cjs",
+            "global",
             "esm-browser"
         ],
         "name": "IeuBigEye"
