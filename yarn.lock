@@ -2214,8 +2214,8 @@ algoliasearch@^3.24.5:
 
 alife-logger@^1.8.30:
   version "1.8.30"
-  resolved "https://registry.npm.alibaba-inc.com/alife-logger/download/alife-logger-1.8.30.tgz#08407fce823311356dd963dce54fef5124fcaf45"
-  integrity sha1-CEB/zoIzETVt2WPc5U/vUST8r0U=
+  resolved "https://registry.yarnpkg.com/alife-logger/-/alife-logger-1.8.30.tgz#08407fce823311356dd963dce54fef5124fcaf45"
+  integrity sha512-uDJP/D5BMfsBZfV72ZeRZzhLCP267SKoilercjxv34wuXpk65ttOO9STNI49XjOZ5TwZtFm+97r3tE4ONMsI4w==
 
 alphanum-sort@^1.0.0:
   version "1.0.2"
