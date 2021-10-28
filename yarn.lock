@@ -2212,6 +2212,11 @@ algoliasearch@^3.24.5:
     semver "^5.1.0"
     tunnel-agent "^0.6.0"
 
+alife-logger@^1.8.30:
+  version "1.8.30"
+  resolved "https://registry.npm.alibaba-inc.com/alife-logger/download/alife-logger-1.8.30.tgz#08407fce823311356dd963dce54fef5124fcaf45"
+  integrity sha1-CEB/zoIzETVt2WPc5U/vUST8r0U=
+
 alphanum-sort@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
