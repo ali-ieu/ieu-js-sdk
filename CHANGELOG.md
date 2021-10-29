@@ -1,3 +1,19 @@
+# [1.3.0](https://github.com/ali-ieu/ieu-js-sdk/compare/v1.2.2...v1.3.0) (2021-10-29)
+
+
+### Bug Fixes
+
+* **big-eye:** change alife-logger resolve path to yarnpkg.com ([be5702d](https://github.com/ali-ieu/ieu-js-sdk/commit/be5702d0c6fefadede174398e5e69dd128416c33))
+* **big-eye:** fix error tips keyword ([31a621d](https://github.com/ali-ieu/ieu-js-sdk/commit/31a621d6eaa51f484ec7b03b046c5f42f0e0f865))
+
+
+### Features
+
+* **big-eye:** add big-eye monitor ([a51a754](https://github.com/ali-ieu/ieu-js-sdk/commit/a51a7541e15273ce96ad0c23d021a7f6bc360fde))
+* **big-eye:** add rollup build type ([a7f1aa0](https://github.com/ali-ieu/ieu-js-sdk/commit/a7f1aa00133020a07bfa1aabe1273a0fddf180f9))
+
+
+
 ## [1.2.2](https://github.com/ali-ieu/ieu-js-sdk/compare/v1.1.1...v1.2.2) (2021-10-14)
 
 
