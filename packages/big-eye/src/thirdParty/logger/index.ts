@@ -24,12 +24,12 @@ const CONFIG = {
 
 const initFn = (conf: IInitCustomParam) => {
     if (Object.prototype.toString.call(conf) !== '[object Object]') {
-        console.error('mmonitor config require object type')
+        console.error('BigEye config require object type')
         return
     }
     const { env, name, release, pid } = conf
     if (![name, release, env, pid].every((x) => x)) {
-        console.error('mmonitor config require object type includes targetId, envFlag, release, loggerConfig.')
+        console.error('BigEye config require object type includes targetId, envFlag, release, loggerConfig.')
         return
     }
     const _conf = {
