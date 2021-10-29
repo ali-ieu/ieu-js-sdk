@@ -1,9 +1,9 @@
 ## How To Use
 页面初始化时使用。
 ```javascript
-import { BigEye, BrowserLogger  } from '@alife/publicity-m-monitor';
+import { BigEye, BrowserLogger } from '@ali-ieu/ieu-js-sdk';
 
-MMoni({
+BigEye({
   targetId: "app", // 监听对象的id，一般为根节点的id
   envFlag: process.env.NODE_ENV, // 开发环境默认为'development'，其余都认为是线上监控环境
   // ARMS的必配参数
@@ -35,7 +35,7 @@ MMoni({
 ### 内嵌ARMS
 
 ```javascript
-import { BigEye, BrowserLogger  } from '@alife/publicity-m-monitor';
+import { BigEye, BrowserLogger  } from '@ali-ieu/ieu-js-sdk';
 
 BrowserLogger.api(api, success, time, code, msg, begin, traceId, sid)
 ```
