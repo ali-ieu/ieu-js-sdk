@@ -11,7 +11,7 @@
         "index.js",
         "dist"
     ],
-    "types": "dist/ieu-js-sdk.d.ts",
+    "types": "dist/big-eye.d.ts",
     "sideEffects": [],
     "author": "AgneseLee",
     "homepage": "https://github.com/ali-ieu/ieu-js-sdk/#quickstart",
