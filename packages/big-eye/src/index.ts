@@ -1,4 +1,5 @@
 import initBrowserLogger from './thirdParty/logger/index'
+import { isMobile } from './utils'
 let _envFlag = 'development'
 let BrowserLogger: any
 
@@ -59,7 +60,6 @@ const mutationCallback: MutationCallback = function (mutationsList) {
 function dfs(parentNode: any, cb: (node: Node) => void) {
     if (!parentNode) return
     cb(parentNode)
-    console.log(parentNode)
     if (parentNode.children) {
         Array.prototype.forEach.call(parentNode.children, function (child) {
             dfs(child, cb)
@@ -86,7 +86,8 @@ function BigEye({ targetId, envFlag, loggerConfig }: IEntry) {
         env: envFlag,
         ...loggerConfig,
     })
-    if (targetObj) {
+    const isM = isMobile()
+    if (targetObj && isM) {
         document.addEventListener('DOMContentLoaded', function () {
             monitorInit(targetObj)
         })
