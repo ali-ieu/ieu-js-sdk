@@ -10,7 +10,7 @@ BigEye({
   loggerConfig: {
     pid: "your app pid of arms",
     release: "1.0.0",
-    c1: "test",
+    c1: "test_1102", //命名规范: activityName_上线月份日期。举个例子川流活动页4月30日发布：chuanliu_0430
   },
 });
 ```
