@@ -10,7 +10,7 @@ BigEye({
   loggerConfig: {
     pid: "your app pid of arms",
     release: "1.0.0",
-    name: "test",
+    c1: "test",
   },
 });
 ```
@@ -40,7 +40,7 @@ import { BigEye, BrowserLogger  } from '@ali-ieu/ieu-js-sdk';
 BrowserLogger.api(api, success, time, code, msg, begin, traceId, sid)
 ```
 
-更多使用请参考ARMS官方文档https://help.aliyun.com/document_detail/58657.html 。
+BrowserLogger相当于官方文档中的__bl。更多使用请参考ARMS官方文档https://help.aliyun.com/document_detail/58657.html 。
 
 ## License
 ISC license
