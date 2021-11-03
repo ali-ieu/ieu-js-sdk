@@ -80,8 +80,11 @@ function monitorInit(target: HTMLElement, config?: MutationObserverInit) {
 
 function BigEye({ targetId, envFlag, loggerConfig }: IEntry) {
     const targetObj = document.getElementById(targetId || 'app')
+    if (!envFlag) {
+        console.error('BigEye config require envFlag to set environment.')
+        return
+    }
     envFlag && (_envFlag = envFlag)
-
     BrowserLogger = initBrowserLogger({
         env: envFlag,
         ...loggerConfig,
