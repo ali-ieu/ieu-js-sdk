@@ -1,3 +1,18 @@
+## [1.3.1](https://github.com/ali-ieu/ieu-js-sdk/compare/v1.3.0...v1.3.1) (2021-11-03)
+
+
+### Bug Fixes
+
+* **big-eye:** add api-extractor.json ([4228a18](https://github.com/ali-ieu/ieu-js-sdk/commit/4228a1853b3d2ea483f644c6f5c5e91de1913f3c))
+* **big-eye:** remove log; only turn on big image monitor on mobile ([a658c50](https://github.com/ali-ieu/ieu-js-sdk/commit/a658c50ceb018202942ed59969985057bbc2d4f5))
+
+
+### Features
+
+* **big-eye:** add new required init params ([0ad5134](https://github.com/ali-ieu/ieu-js-sdk/commit/0ad5134c61efc15f881c18a45ac0cde049dc2209))
+
+
+
 # [1.3.0](https://github.com/ali-ieu/ieu-js-sdk/compare/v1.2.2...v1.3.0) (2021-10-29)
 
 
