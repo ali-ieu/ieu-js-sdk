@@ -27,9 +27,9 @@ const initFn = (conf: IInitCustomParam) => {
         console.error('BigEye config require object type')
         return
     }
-    const { env, name, release, pid } = conf
-    if (![name, release, env, pid].every((x) => x)) {
-        console.error('BigEye config require object type includes targetId, envFlag, release, loggerConfig.')
+    const { env, release, pid, c1 } = conf
+    if (![release, env, pid, c1].every((x) => x)) {
+        console.error('BigEye loggerConfig require object type includes env, release, pid, c1. c1 is for activity name.')
         return
     }
     const _conf = {

@@ -11,9 +11,9 @@ type IEnvConfStringKeys = Extract<keyof IEnvConf, string>
 
 interface IInitCustomParam {
     env: IEnvConfStringKeys
-    name: string
     release: string
     pid: string
+    c1: string
     // [key: string]: any
 }
 
