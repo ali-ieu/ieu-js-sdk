@@ -7,16 +7,10 @@ type NativeResult = {
     retval?: any
 }
 
-interface Params {
-    /** method name */
-    name: string
+interface APIParams {
     args?: any
-}
-
-interface BaseConfig {
-    share_support_platform: {
-        [k in ShareType]?: boolean
-    }
+    onSuccess?: (res: any) => void
+    onError?: (error: any) => void
 }
 
 export interface NativeShareParams {
@@ -86,31 +80,46 @@ class SDK {
         return this.eventsId
     }
 
-    private getPhoneType() {
+    private getDeviceType() {
         const ua = navigator.userAgent
         const isIOS = /iPad|iPhone|iPod/i.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
         if (/android/i.test(ua)) {
             return 'android'
         } else if (isIOS) {
             return 'ios'
+        } else if (/window/i.test(ua)) {
+            return 'PC'
         }
         return 'other'
     }
 
-    private native(params: Params, callback: (err: Error | null, result?: any) => void) {
+    /**
+     *
+     * @param name 方法名
+     * @param asyncCall lua异步接口是否异步回调js。false的话，Promise可立马resolve，结果是假结果
+     * @param params js传的入参
+     * @returns
+     */
+    private native(name: string, asyncCall: boolean, params?: APIParams) {
         const eventsId = this.genID()
         this.messager.once(eventsId, (result: NativeResult) => {
             // 注册 分发回去
             if (result.error) {
-                callback(new Error(result.error))
+                if (params?.onError) {
+                    params.onError(new Error(result.error))
+                } else {
+                    console.error('call native err: ' + JSON.stringify(result.error))
+                }
                 return
             }
-            try {
-                // 如果是可以反序列化的字符串，就反序列化回去
-                callback(null, JSON.parse(result.retval))
-            } catch (e) {
-                // 否则，原样返回
-                callback(null, result.retval)
+            if (params?.onSuccess) {
+                try {
+                    // 如果是可以反序列化的字符串，就反序列化回去
+                    params.onSuccess(JSON.parse(result.retval))
+                } catch (e) {
+                    // 否则，原样返回
+                    params.onSuccess(result.retval)
+                }
             }
         })
         // 不在支持的客户端环境
@@ -119,22 +128,22 @@ class SDK {
             return
         }
 
-        const type = this.getPhoneType()
+        const protocolStr = JSON.stringify({
+            id: eventsId,
+            name: name,
+            args: params?.args,
+            asyncCall,
+        })
+        const type = this.getDeviceType()
         switch (type) {
             case 'android':
                 {
-                    const defaultValue = JSON.stringify({
-                        id: eventsId,
-                        name: params.name,
-                        args: params.args,
-                        asyncCall: true,
-                    })
-                    if (params.name === 'notifyLua') {
+                    if (name === 'notifyLua') {
                         // 安卓事件异步发送
-                        prompt('jsinterface://', defaultValue)
+                        prompt('jsinterface://', protocolStr)
                     } else {
                         // 使用同步阻塞的方式拿到结果
-                        const resultText = prompt('jsinterface://', defaultValue)
+                        const resultText = prompt('jsinterface://', protocolStr)
                         const result = resultText ? JSON.parse(resultText) : {}
                         this.nativeCallback(eventsId, result)
                     }
@@ -143,13 +152,7 @@ class SDK {
             case 'ios':
                 // ios 事件发送
                 {
-                    const query = {
-                        id: eventsId,
-                        name: params.name,
-                        args: params.args,
-                        asyncCall: params.name === 'notifyLua',
-                    }
-                    const queryString = encodeURIComponent(JSON.stringify(query))
+                    const queryString = encodeURIComponent(protocolStr)
 
                     const webViewJSinterface = window?.['webkit']?.['messageHandlers']?.['jsinterface']
 
@@ -167,6 +170,12 @@ class SDK {
                     }
                 }
                 break
+            case 'PC':
+                {
+                    const queryString = encodeURIComponent(protocolStr)
+                    window.chrome.webview.postMessage(queryString)
+                }
+                break
             default:
                 // 不被支持的方式
                 this.nativeCallback(eventsId, { error: '当前设备不支持' })
@@ -179,66 +188,67 @@ class SDK {
     }
 
     /**
+     * 同步调端接口，属于底层基础api。可以调用不在api列表的其他可用lua接口
+     * @param name 方法名
+     * @param params 见APIParams类型
+     */
+    public callSync(name: string, params?: APIParams) {
+        this.native(name, false, params)
+    }
+
+    /**
+     * 异步调端接口，属于底层基础api。可以调用不在api列表的其他可用lua接口
+     * 这里的同步异步指Lua是异步逻辑然后回调js还是同步逻辑然后回调js, 一般对接口时找客户端同学确认。
+     * @param name 方法名
+     * @param params 见APIParams类型
+     */
+    public callAsync(name: string, params?: APIParams) {
+        this.native(name, true, params)
+    }
+
+    /**
      * 获取应用初始化的信息
      */
-    getStartupData(_: Record<string, any>, callback: (err: Error | null, result?: BaseConfig) => void): void {
-        this.native({ name: 'getStartupData', args: {} }, callback)
+    public getStartupData(params: Pick<APIParams, 'onSuccess' | 'onError'>) {
+        this.callSync('getStartupData', params)
     }
 
     /** 调用端内分享功能 */
-    share(shareType: ShareType, shareParams: NativeShareParams, callback: (err: Error | null, result?: ShareResult) => void): void {
-        this.native(
-            {
-                name: 'notifyLua',
-                args: {
-                    chl: 'social',
-                    type: shareType,
-                    params: shareParams,
-                },
+    public share(shareType: ShareType, shareParams: NativeShareParams, params: Pick<APIParams, 'onSuccess' | 'onError'>): void {
+        this.callAsync('notifyLua', {
+            args: {
+                chl: 'social',
+                type: shareType,
+                params: shareParams,
             },
-            callback,
-        )
+            ...params,
+        })
     }
 
     /** 检查某种分享方式是否被支持 */
-    checkShareType(types: ShareType[], callback: (err: Error | null, result?: ShareSupportInfo[]) => void): void {
-        this.native(
-            {
-                name: 'notifyLua',
-                args: {
-                    chl: 'lua_call',
-                    syncCall: true,
-                    params: { module: 'ejoysdk_lua.social.ejoysdk_social', func: 'is_support', params: types },
-                },
+    public checkShareType(types: ShareType[], params: Pick<APIParams, 'onSuccess' | 'onError'>): void {
+        this.callAsync('notifyLua', {
+            args: {
+                chl: 'lua_call',
+                syncCall: true,
+                params: { module: 'ejoysdk_lua.social.ejoysdk_social', func: 'is_support', params: types },
             },
-            callback,
-        )
+            ...params,
+        })
     }
 
     /** 设置 webview 透明背景 */
-    transparentBackground(_: Record<string, any>, callback: (err: Error | null, result?: any) => void): void {
-        this.native(
-            {
-                name: 'transparentBackground',
-                args: {},
-            },
-            callback,
-        )
+    public transparentBackground(params?: Pick<APIParams, 'onSuccess' | 'onError'>) {
+        this.callSync('transparentBackground', params)
     }
 
     /** 关闭 webview */
-    closeWebview(_: Record<string, any>, callback: (err: Error | null, result?: any) => void): void {
-        this.native(
-            {
-                name: 'closeBrowser',
-                args: {},
-            },
-            callback,
-        )
+    public closeBrowser() {
+        this.callSync('closeBrowser')
     }
 
     /** 是否端内外 */
-    isAliHYApp(): boolean {
+    public isAliHYApp(): boolean {
         let isAliHYApp = false
         const myUA = navigator.userAgent
         if (myUA && myUA.indexOf('HYSDK') > 0) {
@@ -249,6 +259,43 @@ class SDK {
             isAliHYApp = true
         }
         return isAliHYApp
+    }
+
+    /**
+     * 异步notifyLua
+     * 这里的同步异步指Lua是异步逻辑然后回调js还是同步逻辑然后回调js, 一般对接口时找客户端同学确认。
+     * @param params 见APIParams类型
+     */
+    public notifyLuaAsync(params: APIParams) {
+        this.callAsync('notifyLua', params)
+    }
+
+    /**
+     * 同步notifyLua
+     * 这里的同步异步指Lua是异步逻辑然后回调js还是同步逻辑然后回调js, 一般对接口时找客户端同学确认。
+     * @param params 见APIParams类型
+     */
+    public notifyLuaSync(params: APIParams) {
+        this.callSync('notifyLua', params)
+    }
+
+    /**
+     * 开启WebView调试
+     */
+    public enableDebug() {
+        this.callSync('enableDebug')
+    }
+
+    /**
+     * 是否展示右上角关闭按钮
+     * @param show 是否展示
+     */
+    public showCloseButton(show: boolean) {
+        this.callSync('nativeAction', {
+            args: {
+                showCloseButton: show,
+            },
+        })
     }
 }
 
