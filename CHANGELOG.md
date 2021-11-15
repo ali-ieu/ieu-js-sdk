@@ -1,3 +1,12 @@
+# [2.0.0](https://github.com/ali-ieu/ieu-js-sdk/compare/v1.3.1...v2.0.0) (2021-11-15)
+
+
+### Features
+
+* v2.0融合版 ([59eb760](https://github.com/ali-ieu/ieu-js-sdk/commit/59eb7603132ba0fcd032964e22e63aacfc743f68))
+
+
+
 ## [1.3.1](https://github.com/ali-ieu/ieu-js-sdk/compare/v1.3.0...v1.3.1) (2021-11-03)
 
 
