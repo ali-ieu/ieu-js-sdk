@@ -31,11 +31,8 @@ describe('ejoysdk', () => {
     it('test event success', () => {
         const result = 'success'
 
-        EjoySDK.share('qq_share_messenger', shareParams, (err, result) => {
-            if (err) {
-                return
-            }
-            expect(result).toBe(result)
+        EjoySDK.share('qq_share_messenger', shareParams, {
+            onSuccess: (res) => expect(res).toBe(res),
         })
         expect(EjoySDK.eventsId).toBe('1001')
         EjoySDK.nativeCallback(EjoySDK.eventsId, {
@@ -48,11 +45,9 @@ describe('ejoysdk', () => {
         const error = 'error'
 
         expect(isNative()).toBe(true)
-        EjoySDK.share('qq_share_messenger', shareParams, (err, result) => {
-            if (err) {
-                expect(err).toEqual(new Error(error))
-            }
-            expect(result).toBe(undefined)
+        EjoySDK.share('qq_share_messenger', shareParams, {
+            onSuccess: (res) => expect(res).toBe(undefined),
+            onError: (err) => expect(err).toEqual(new Error(error)),
         })
         expect(EjoySDK.eventsId).toBe('1001')
         EjoySDK.nativeCallback(EjoySDK.eventsId, {

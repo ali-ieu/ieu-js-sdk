@@ -130,17 +130,20 @@ class SocialShare {
                 })
             } else {
                 // 调用端内
-                EjoySDK.share(shareType, this.convertParams(shareConfig), (e, result) => {
-                    if (e) {
+                EjoySDK.share(shareType, this.convertParams(shareConfig), {
+                    onSuccess: (result) => {
+                        if (result?.code === 0) {
+                            resolve(result)
+                        } else {
+                            reject(result)
+                        }
+                    },
+                    onError: (e) => {
                         reject({
                             code: -1,
                             msg: e.message,
                         })
-                    } else if (result?.code === 0) {
-                        resolve(result)
-                    } else {
-                        reject(result)
-                    }
+                    },
                 })
             }
         })
@@ -191,17 +194,20 @@ class SocialShare {
                 })
             } else {
                 // 调用端内
-                EjoySDK.share(shareType, this.convertParams(shareConfig), (e, result) => {
-                    if (e) {
+                EjoySDK.share(shareType, this.convertParams(shareConfig), {
+                    onSuccess: (result) => {
+                        if (result?.code === 0) {
+                            resolve(result)
+                        } else {
+                            reject(result)
+                        }
+                    },
+                    onError: (e) => {
                         reject({
                             code: -1,
                             msg: e.message,
                         })
-                    } else if (result?.code === 0) {
-                        resolve(result)
-                    } else {
-                        reject(result)
-                    }
+                    },
                 })
             }
         })
@@ -224,17 +230,20 @@ class SocialShare {
                 // 调用端内
                 const shareType = `sina_share_${shareConfig.type ?? 'weibo'}` as const
 
-                EjoySDK.share(shareType, this.convertParams(shareConfig), (e, result) => {
-                    if (e) {
+                EjoySDK.share(shareType, this.convertParams(shareConfig), {
+                    onSuccess: (result) => {
+                        if (result?.code === 0) {
+                            resolve(result)
+                        } else {
+                            reject(result)
+                        }
+                    },
+                    onError: (e) => {
                         reject({
                             code: -1,
                             msg: e.message,
                         })
-                    } else if (result?.code === 0) {
-                        resolve(result)
-                    } else {
-                        reject(result)
-                    }
+                    },
                 })
             }
         })
@@ -279,17 +288,20 @@ class SocialShare {
                 // 调用端内
                 const shareType = `wechat_share_${shareConfig.type ?? 'messenger'}` as const
 
-                EjoySDK.share(shareType, this.convertParams(shareConfig), (e, result) => {
-                    if (e) {
+                EjoySDK.share(shareType, this.convertParams(shareConfig), {
+                    onSuccess: (result) => {
+                        if (result?.code === 0) {
+                            resolve(result)
+                        } else {
+                            reject(result)
+                        }
+                    },
+                    onError: (e) => {
                         reject({
                             code: -1,
                             msg: e.message,
                         })
-                    } else if (result?.code === 0) {
-                        resolve(result)
-                    } else {
-                        reject(result)
-                    }
+                    },
                 })
             }
         })
