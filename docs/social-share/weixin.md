@@ -48,7 +48,7 @@ share.WeChat({
 ```ts
 share.WeChat({
     type: 'timeline',
-    meidas: ['https://example.png'],
+    medias: ['https://example.png'],
 })
 ```
 
@@ -81,7 +81,7 @@ share.WeChat({
 ```ts
 share.WeChat({
     type: 'messenger',
-    meidas: ['https://example.png'],
+    medias: ['https://example.png'],
 })
 ```
 

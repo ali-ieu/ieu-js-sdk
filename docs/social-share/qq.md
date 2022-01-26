@@ -52,7 +52,7 @@ share.QQ({
 ```ts
 share.QQ({
     type: 'qzone',
-    meidas: ['https://example.png'],
+    medias: ['https://example.png'],
 })
 ```
 
@@ -85,7 +85,7 @@ share.QQ({
 ```ts
 share.QQ({
     type: 'messenger',
-    meidas: ['https://example.png'],
+    medias: ['https://example.png'],
 })
 ```
 

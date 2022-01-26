@@ -44,7 +44,7 @@ share.FaceBook({
 ```ts
 share.FaceBook({
     type: 'timeline',
-    meidas: ['https://example.png'],
+    medias: ['https://example.png'],
 })
 ```
 
@@ -64,6 +64,6 @@ share.FaceBook({
 ```ts
 share.FaceBook({
     type: 'messenger',
-    meidas: ['https://example.png'],
+    medias: ['https://example.png'],
 })
 ```
