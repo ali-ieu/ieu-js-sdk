@@ -16,7 +16,7 @@ module.exports = {
                     title: '第三方登录',
                     collapsable: false,
                     sidebarDepth: 3,
-                    children: ['', 'lingxi', 'airline', 'weixin'],
+                    children: ['', 'lingxi', 'airline', 'weixin', 'bilibili'],
                 },
             ],
             '/social-share/': [
@@ -24,7 +24,7 @@ module.exports = {
                     title: '社交分享',
                     sidebarDepth: 3,
                     collapsable: false,
-                    children: ['', 'facebook', 'twitter', 'weixin', 'qq'],
+                    children: ['', 'facebook', 'twitter', 'weixin', 'qq', 'weibo'],
                 },
             ],
         },
