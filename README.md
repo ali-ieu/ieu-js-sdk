@@ -80,6 +80,10 @@ EjoySDK.getStartupData({
     showCloseButton(show: boolean): void;
 ```
 
+## 开发
+纯构建包，执行 `yarn run build` <br>
+发布不用手动改package.json的version, 只需执行`yarn run release`
+
 ## License
 
 Released under [MIT License](./LICENSE).
