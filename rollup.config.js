@@ -112,7 +112,7 @@ function createConfig(format, output, plugins = []) {
 
     // esm bundler & cjs format need external dependencies and peerDependencies
     const external =
-        isGlobalBuild || isBrowserESMBuild
+        isGlobalBuild || isBrowserESMBuild || isBundlerESMBuild
             ? []
             : [
                   ...Object.keys(pkg.dependencies || {}),
