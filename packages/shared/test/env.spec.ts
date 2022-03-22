@@ -13,4 +13,8 @@ describe('Env', () => {
         const env = new Env({ host: 'a.com' })
         expect(env.getHost()).toBe('https://a.com')
     })
+    it('it could get fissionURL', () => {
+        const env = new Env({ host: 'https://a.com', fissionURL: 'https://b.com' })
+        expect(env.getFissionURL()).toBe('https://b.com')
+    })
 })
