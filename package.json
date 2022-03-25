@@ -43,7 +43,7 @@
         "build:docs": "vuepress build docs",
         "test": "npm run test:lint && npm run test:unit",
         "test:lint": "eslint \"*/**/*.{ts,js,json}\"",
-        "test:unit": "SKIP_E2E=true jest",
+        "test:unit": "SKIP_E2E=true jest --coverage",
         "test:e2e": "jest",
         "lint": "eslint \"*/**/*.{ts,js,json}\" --fix",
         "bootstrap": "node scripts/bootstrap.js",
