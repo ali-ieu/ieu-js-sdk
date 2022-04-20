@@ -1,6 +1,6 @@
 {
     "name": "@ali-ieu/ejoysdk",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "@ali-ieu/ejoysdk",
     "main": "index.js",
     "module": "dist/ejoysdk.esm-bundler.js",
@@ -25,7 +25,7 @@
     "homepage": "https://github.com/ali-ieu/ieu-js-sdk/#quickstart",
     "sideEffects": [],
     "dependencies": {
-        "@ali-ieu/shared": "2.0.1"
+        "@ali-ieu/shared": "2.0.2"
     },
     "buildOptions": {
         "formats": [

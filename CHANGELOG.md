@@ -1,3 +1,17 @@
+## [2.0.2](https://github.com/ali-ieu/ieu-js-sdk/compare/v2.0.1...v2.0.2) (2022-04-20)
+
+
+### Bug Fixes
+
+* srcdoc 下报错阻塞问题 ([6a57c1d](https://github.com/ali-ieu/ieu-js-sdk/commit/6a57c1d1085d137945c46d1fc6819503a8c2092e))
+
+
+### Features
+
+* add unit test ([d0cd6af](https://github.com/ali-ieu/ieu-js-sdk/commit/d0cd6afa0c28f4a4e0aff8b2a7b69a6150123dce))
+
+
+
 ## [2.0.1](https://github.com/ali-ieu/ieu-js-sdk/compare/v2.0.0...v2.0.1) (2022-02-23)
 
 
