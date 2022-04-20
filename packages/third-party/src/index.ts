@@ -277,8 +277,13 @@ function sideEffect() {
         query = '?' + query
     }
 
-    // 删除完应用参数后，拼接新的链接
-    history.replaceState(history.state, '', window.location.origin + window.location.pathname + query + window.location.hash)
+    // replaceState 在部分场景(iframe等)有异常，添加 try catch 不阻塞代码运行
+    try {
+        // 删除完应用参数后，拼接新的链接
+        history.replaceState(history.state, '', window.location.origin + window.location.pathname + query + window.location.hash)
+    } catch (err) {
+        console.log(err)
+    }
 
     ThirdParty.isNeedOauthCall = Boolean(access_code && client_id && third_party_channel)
     ThirdParty.isNeedFissionCall = Boolean(access_code && client_id && third_party_channel)
