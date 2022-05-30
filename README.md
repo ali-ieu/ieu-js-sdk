@@ -49,7 +49,7 @@ EjoySDK.getStartupData({
     getStartupData(params: Pick<APIParams, 'onSuccess' | 'onError'>): void;
     /** 调用端内分享功能 */
     share(shareType: ShareType, shareParams: NativeShareParams, params: Pick<APIParams, 'onSuccess' | 'onError'>): void;
-    /** 检查某种分享方式是否被支持 */
+    /** 检查某种分享方式是否被支持 目前只支持单个，不要传数组*/
     checkShareType(types: ShareType[], params: Pick<APIParams, 'onSuccess' | 'onError'>): void;
     /** 设置 webview 透明背景 */
     transparentBackground(params?: Pick<APIParams, 'onSuccess' | 'onError'>): void;
