@@ -1,6 +1,6 @@
 {
     "name": "@ali-ieu/ieu-js-sdk",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "@ali-ieu/ieu-js-sdk",
     "main": "index.js",
     "module": "dist/ieu-js-sdk.esm-bundler.js",
@@ -25,11 +25,11 @@
     "homepage": "https://github.com/ali-ieu/ieu-js-sdk/#quickstart",
     "sideEffects": [],
     "dependencies": {
-        "@ali-ieu/ejoysdk": "2.0.2",
-        "@ali-ieu/shared": "2.0.2",
-        "@ali-ieu/social-share": "2.0.2",
-        "@ali-ieu/third-party": "2.0.2",
-        "@ali-ieu/big-eye": "2.0.2"
+        "@ali-ieu/ejoysdk": "2.0.3",
+        "@ali-ieu/shared": "2.0.3",
+        "@ali-ieu/social-share": "2.0.3",
+        "@ali-ieu/third-party": "2.0.3",
+        "@ali-ieu/big-eye": "2.0.3"
     },
     "buildOptions": {
         "formats": [

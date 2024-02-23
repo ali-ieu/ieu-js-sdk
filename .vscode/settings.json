@@ -11,5 +11,6 @@
     "mdx": {
       "parser": "markdown"
     }
-  }
+  },
+  "terminal.integrated.scrollback": 1600
 }

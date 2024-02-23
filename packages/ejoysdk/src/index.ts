@@ -83,7 +83,9 @@ class SDK {
     private getDeviceType() {
         const ua = navigator.userAgent
         const isIOS = /iPad|iPhone|iPod/i.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)
-        if (/android/i.test(ua)) {
+        if (/Harmony/i.test(ua)) {
+            return 'harmonyos'
+        } else if (/android/i.test(ua)) {
             return 'android'
         } else if (isIOS) {
             return 'ios'
@@ -137,6 +139,7 @@ class SDK {
         const type = this.getDeviceType()
         switch (type) {
             case 'android':
+            case 'harmonyos':
                 {
                     if (name === 'notifyLua') {
                         // 安卓事件异步发送
