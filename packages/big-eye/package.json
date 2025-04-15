@@ -1,6 +1,6 @@
 {
     "name": "@ali-ieu/big-eye",
-    "version": "2.1.0-beta.1",
+    "version": "2.1.0-beta.2",
     "description": "@ali-ieu/big-eye",
     "main": "index.js",
     "module": "dist/big-eye.esm-bundler.js",

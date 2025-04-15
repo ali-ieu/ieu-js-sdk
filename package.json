@@ -1,5 +1,5 @@
 {
-    "version": "2.1.0-beta.1",
+    "version": "2.1.0-beta.2",
     "private": true,
     "workspaces": [
         "packages/*"
@@ -42,9 +42,9 @@
         "dev:docs": "vuepress dev docs",
         "build:docs": "vuepress build docs",
         "test": "npm run test:lint && npm run test:unit",
-        "test:lint": "",
-        "test:unit": "",
-        "test:e2e": "",
+        "test:lint": "eslint \"*/**/*.{ts,js,json}\"",
+        "test:unit": "SKIP_E2E=true jest --coverage",
+        "test:e2e": "jest",
         "lint": "eslint \"*/**/*.{ts,js,json}\" --fix",
         "bootstrap": "node scripts/bootstrap.js",
         "build": "node scripts/build.js",
