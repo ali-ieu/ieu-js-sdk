@@ -16,6 +16,15 @@
 
 
 
+# [2.1.0-beta.1](https://github.com/ali-ieu/ieu-js-sdk/compare/v2.0.2...v2.1.0-beta.1) (2025-04-15)
+
+
+### Features
+
+* do not destructure unused variables(os, login_type) in third-party sideEffect function ([853b10c](https://github.com/ali-ieu/ieu-js-sdk/commit/853b10cb01ceb1fd9696543bdc7f716c963b770f))
+
+
+
 ## [2.0.3](https://github.com/ali-ieu/ieu-js-sdk/compare/v2.0.2...v2.0.3) (2024-02-23)
 
 
