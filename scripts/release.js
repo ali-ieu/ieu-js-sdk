@@ -82,7 +82,7 @@ async function main() {
     // build all packages with types
     step('\nBuilding all packages...')
     if (!skipBuild && !isDryRun) {
-        await run('yarn', ['build', '--release'])
+        // await run('yarn', ['build', '--release'])
         // test generated dts files
         step('\nVerifying type declarations...')
     } else {
