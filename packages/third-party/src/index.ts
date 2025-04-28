@@ -267,9 +267,7 @@ class ThirdParty {
 }
 
 function sideEffect() {
-    const { client_id, access_code, third_party_channel, airline_type, os, login_type, ...restParams } = parse(
-        window.location.search.slice(1),
-    )
+    const { client_id, access_code, third_party_channel, airline_type, ...restParams } = parse(window.location.search.slice(1))
 
     let query = stringify(restParams)
 
