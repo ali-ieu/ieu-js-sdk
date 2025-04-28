@@ -1,3 +1,7 @@
+# [2.1.0](https://github.com/ali-ieu/ieu-js-sdk/compare/v2.1.0-beta.2...v2.1.0) (2025-04-28)
+
+
+
 # [2.1.0-beta.2](https://github.com/ali-ieu/ieu-js-sdk/compare/v2.1.0-beta.1...v2.1.0-beta.2) (2025-04-15)
 
 
